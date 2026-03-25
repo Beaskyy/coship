@@ -47,26 +47,36 @@ export default function Hero() {
                height={600}
              />
           </div>
-          <div className="absolute md:-left-[355px] md:top-60 animate-float">
+          <div className="absolute -left-4 top-20 w-[180px] z-40 sm:w-[240px] md:w-auto md:-left-[355px] md:top-60 animate-float">
              <Image
                src="/images/date-range-picker.svg" 
                alt="Date range picker" 
-               className="w-full h-full" 
+               className="w-full h-auto" 
                width={506}
                height={300}
              />
           </div>
-          <div className="absolute md:-right-[270px] md:top-42 animate-float [animation-delay:1.5s]">
+          <div className="absolute -right-4 top-10 w-[80px] z-10 sm:w-[120px] md:w-auto md:-right-[270px] md:top-42 animate-float [animation-delay:1.5s]">
              <Image 
                src="/images/user-roles.svg" 
                alt="User roles" 
-               className="w-full h-full" 
+               className="w-full h-auto" 
                width={195}
                height={138}
              />
           </div>
         </div>
       </div>
+      
+      {/* Bottom Blur Overlay */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-20 md:h-60 pointer-events-none z-10"
+        style={{ 
+          background: 'linear-gradient(180deg, rgba(253, 243, 232, 0) 0%, #ffffff27 100%)',
+          backdropFilter: 'blur(1px)',
+          WebkitBackdropFilter: 'blur(1px)'
+        }} 
+      />
     </section>
   );
 }

@@ -1,104 +1,87 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 
-const faqs = [
+const faqs: { question: string; answer: React.ReactNode }[] = [
   {
-    question: "How does the pricing work?",
-    answer:
-      "Our pricing is based on a monthly subscription. You can choose between our Simple and Pro plans depending on your business needs. There are no hidden fees or setup costs.",
+    question: "1. What is Coship?",
+    answer: "Coship is a logistics as a service platform that provides the infrastructure for delivery companies to manage orders, automate pricing, and handle payments without building software from scratch."
   },
   {
-    question: "Can I switch plans at any time?",
-    answer:
-      "Yes! You can upgrade or downgrade your plan at any time. When upgrading, you'll get immediate access to new features. When downgrading, the change will take effect at the start of your next billing cycle.",
+    question: "2. How are delivery fees calculated for my customers?",
+    answer: (
+      <>
+        Coship offers a flexible, multi-modal pricing engine. You can configure your rates based on:<br /><br />
+        Distance: Charge per kilometer/mile.<br /><br />
+        Weight: Charge based on package heaviness.<br /><br />
+        Size: Fixed rates for Small, Medium, or Large items.<br /><br />
+        Mixed: Combine any of the above for complex pricing logic.<br /><br />
+        Flat: A simple, single rate for all deliveries.
+      </>
+    )
   },
   {
-    question: "Is there a free trial?",
-    answer:
-      "Yes, we offer a 14-day free trial on all plans. No credit card required. You can explore all features and decide which plan works best for your courier business.",
+    question: "3. What is the Coship Service Charge?",
+    answer: "Our business model is simple. We charge a flat ₦100 fee per successful delivery, so you can scale without high percentage commissions."
   },
   {
-    question: "How do I add drivers to my account?",
-    answer:
-      "Adding drivers is simple. From your dashboard, go to Team Management and click 'Add Driver'. You can send them an invite link or add them manually. Drivers will receive the mobile app to manage deliveries.",
+    question: "4. How does the Coship Wallet work?",
+    answer: "Each company is provided with a digital wallet. You top up this wallet to cover our ₦100 service charges. Every time you create or complete an order, the fee is automatically deducted. This keeps your account active and ensures uninterrupted service for your customers."
   },
   {
-    question: "Do you provide customer support?",
-    answer:
-      "Absolutely! Simple plan users get email support with 24-hour response time. Pro plan users get priority support with live chat and phone support during business hours.",
+    question: "5. Can I offer insurance to my customers?",
+    answer: "You're in control of insurance settings. Enable or disable it anytime, and if enabled, the platform automatically calculates fees based on your set percentage."
   },
   {
-    question: "Can I integrate Coship with other tools?",
-    answer:
-      "Yes, our Pro plan includes API access which allows you to integrate Coship with your existing tools, payment processors, and e-commerce platforms. We also offer pre-built integrations with Paystack and Flutterwave.",
+    question: "6. How do my customers pay me?",
+    answer: "As a PaaS provider, Coship handles the logistics logic, but you are in charge of your own revenue. You decide how your customers pay you (Cash on Delivery, direct bank transfer to your business, or third-party integrations). Our focus is solely on deducting our service charge from your tenant wallet."
   },
+  {
+    question: "7. Does Coship provide the riders/couriers?",
+    answer: "No. Coship provides the software to manage your fleet. You bring your riders and vehicles, and we give you the tools to assign tasks, track movement, and manage performance."
+  }
 ];
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left Header */}
-          <div className="lg:sticky lg:top-32 lg:self-start">
-            <span className="text-sm font-semibold text-brand uppercase tracking-wider">
-              FAQ
-            </span>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Questions? We have answers
-            </h2>
-            <p className="mt-4 text-lg text-gray-500">
-              Everything you need to know about Coship. Can&apos;t find what you&apos;re looking for? 
-              Contact our support team.
-            </p>
-            <div className="mt-8">
-              <a
-                href="mailto:support@coship.com"
-                className="inline-flex items-center px-6 py-3 text-sm font-semibold text-brand border border-brand rounded-full hover:bg-brand-50 transition-colors"
-              >
-                Contact support
-              </a>
-            </div>
-          </div>
+    <section className="py-20 lg:py-28 bg-white">
+      <div className="max-w-[746px] mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl md:text-[40px] font-semibold text-[#404040] text-center mb-[38px] tracking-[1px]">
+          Questions? We <br /> have answers
+        </h2>
 
-          {/* Right Accordion */}
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="border border-gray-200 rounded-2xl overflow-hidden transition-all hover:border-gray-300"
+        <div className="border-t border-gray-100">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="border-b border-[#E9E9E9] transition-all"
+            >
+              <button
+                className="w-full flex items-center justify-between py-8 text-left group"
+                onClick={() =>
+                  setOpenIndex(openIndex === index ? null : index)
+                }
               >
-                <button
-                  className="w-full flex items-center justify-between p-5 lg:p-6 text-left"
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? null : index)
-                  }
-                >
-                  <span className="text-base font-semibold text-gray-900 pr-4">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200 ${
-                      openIndex === index ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    openIndex === index ? "max-h-96 pb-5 lg:pb-6" : "max-h-0"
-                  }`}
-                >
-                  <p className="px-5 lg:px-6 text-gray-500 leading-relaxed">
-                    {faq.answer}
-                  </p>
+                <span className={`text-sm md:text-base font-semibold text-[#37394A] transition-colors ${openIndex === index ? 'text-black' : 'text-[#333333]'}`}>
+                  {faq.question}
+                </span>
+                <span className="text-3xl font-light text-[#4A5565] ml-4 shrink-0">
+                  {openIndex === index ? "−" : "+"}
+                </span>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openIndex === index ? "max-h-[500px] pb-8" : "max-h-0"
+                }`}
+              >
+                <div className="text-sm text-[#37394A] leading-[24px]">
+                  {faq.answer}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

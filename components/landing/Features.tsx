@@ -45,15 +45,12 @@ export default function Features() {
             </div>
 
             {/* Integration part */}
-            <div className="mt-12 flex items-center gap-8">
-               <div className="flex items-center gap-2 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
-                  <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-[10px] font-bold">P</div>
-                  <span className="text-sm font-bold text-gray-900 tracking-tight">paystack</span>
-               </div>
-               <div className="flex items-center gap-2 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
-                  <div className="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center text-white text-[10px] font-bold">F</div>
-                  <span className="text-sm font-bold text-gray-900 tracking-tight">flutterwave</span>
-               </div>
+            <div className="flex flex-col gap-2">
+              <p className="md:text-[15px] text-sm text-[#959595]">Trusted by</p>
+              <div className="flex items-center gap-[23px]">
+                <Image src="/images/send24.png" alt="send24" width={119} height={31} />
+                <Image src="/images/passmark.png" alt="passmark" width={145} height={40} />
+              </div>
             </div>
           </div>
         </div>

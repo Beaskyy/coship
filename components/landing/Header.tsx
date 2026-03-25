@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "How it works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Track Package", href: "#track-package" },
   { label: "FAQs", href: "#faqs" },
 ];
 
@@ -14,9 +14,9 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FDF3E8] h-[98px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[98px]">
+    <header className="sticky top-0 z-50 bg-[#FDF3E8]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-2">
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="shrink-0">
             <span 

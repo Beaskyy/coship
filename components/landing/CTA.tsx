@@ -1,35 +1,45 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function CTA() {
   return (
-    <section className="py-20 lg:py-28 bg-brand relative overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-white/5 blur-3xl" />
-      </div>
-
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-          Ready to setup your courier company?
+    <section className="py-20 lg:py-28 bg-white overflow-hidden">
+      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl md:text-[40px] font-semibold text-[#0A0A0A] text-center mb-16 tracking-[-1px]">
+          Ready to setup your<br className="hidden md:block" /> courier company?
         </h2>
-        <p className="mt-6 text-lg text-white/80 max-w-2xl mx-auto">
-          Join hundreds of courier companies that trust Coship to manage their operations. 
-          Get started for free today.
-        </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Link
-            href="#"
-            className="inline-flex items-center px-8 py-4 text-base font-semibold text-brand bg-white rounded-full hover:bg-gray-50 transition-all hover:shadow-lg"
-          >
-            Create free account
-          </Link>
-          <Link
-            href="#"
-            className="inline-flex items-center px-8 py-4 text-base font-semibold text-white border-2 border-white/30 rounded-full hover:bg-white/10 transition-all"
-          >
-            Talk to sales
-          </Link>
+        
+        <div className="relative bg-[#D97706] rounded-[23px] overflow-hidden flex flex-col lg:flex-row shadow-sm min-h-[480px]">
+          {/* Left Column */}
+          <div className="relative z-10 lg:w-[55%] p-5 pt-8 lg:p-20 flex flex-col justify-center">
+            <h3 className="text-white text-3xl lg:text-[44px] font-bold leading-[1.1] tracking-[-1px] mb-12">
+              Run your courier<br /> business on one<br /> platform
+            </h3>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="#"
+                className="inline-flex justify-center items-center text-sm h-11 p-3 text-[18px] font-semibold text-[#D97706] bg-white rounded-xl hover:bg-gray-50 transition-colors shadow-sm"
+              >
+                Get Started
+              </Link>
+              <Link
+                href="#"
+                className="inline-flex justify-center items-center text-sm h-11 p-3 text-[18px] font-semibold text-[#D97706] bg-white rounded-xl hover:bg-gray-50 transition-colors shadow-sm"
+              >
+                Request a Demo
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column / Image container */}
+        <div className="absolute right-0 bottom-0"> 
+          <Image 
+            src="/images/dashboard.png" 
+            alt="Coship Dashboard"
+            width={719}
+            height={465}
+            className="object-cover object-left-top"
+          /></div>
         </div>
       </div>
     </section>
