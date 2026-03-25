@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
 
           {/* Links Section */}
-          <div className="flex flex-col md:flex-row gap-64">
+          <div className="flex flex-col md:flex-row md:gap-64">
             {/* Quick links */}
             <div className="flex flex-col gap-4">
               <h4 className="text-[15px] font-semibold text-[#232323]">
